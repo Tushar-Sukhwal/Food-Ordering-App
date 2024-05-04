@@ -105,14 +105,29 @@ Before starting, ensure you have the following installed:
 - **Frontend**: The frontend directory contains the React.js application with TypeScript.
 - **Shared**: Shared code or utilities that can be used both in the backend and frontend can be placed here.
 
-## Contributing
+## Obtaining API Keys
 
-We welcome contributions to improve this project! Feel free to fork the repository, make your changes, and submit a pull request.
+### MongoDB Connection String
 
-## License
+1. **Sign Up/Login to MongoDB**: If you don't have an account, sign up for MongoDB Atlas at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+2. **Create a Cluster**: Once logged in, create a new cluster. Follow the prompts to choose your preferred cloud provider, region, and cluster settings.
+3. **Get Connection String**: After your cluster is created, navigate to the "Clusters" section and click "Connect" on your newly created cluster. Follow the instructions to whitelist your IP address and create a MongoDB user. Once done, you'll get a connection string that includes your username, password, and other connection options.
 
-This project is licensed under the [MIT License](LICENSE).
+### Auth0
 
-## Acknowledgements
+1. **Sign Up/Login to Auth0**: If you haven't already, sign up for an account at [Auth0](https://auth0.com/).
+2. **Create an Application**: Once logged in, navigate to the "Applications" section and create a new application. Choose the application type (e.g., Single Page Application) and configure the necessary settings.
+3. **Get Client ID and Domain**: After creating the application, you'll get a Client ID and Domain. These will be used as `VITE_AUTH0_CLIENT_ID` and `VITE_AUTH0_DOMAIN` respectively in the frontend `.env` file.
+4. **Set Allowed Callback URLs**: In your Auth0 application settings, set the allowed callback URLs to match your frontend URL (e.g., `http://localhost:5173`). This is important for authentication to work properly.
 
-Special thanks to the creators and maintainers of the libraries, frameworks, and services used in this project. Without their hard work, this project wouldn't be possible.
+### Cloudinary
+
+1. **Sign Up/Login to Cloudinary**: If you don't have an account, sign up for Cloudinary at [Cloudinary](https://cloudinary.com/).
+2. **Get Cloud Name, API Key, and API Secret**: After logging in, navigate to your account dashboard or settings to find your Cloudinary cloud name, API key, and API secret. These will be used as `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, and `CLOUDINARY_API_SECRET` respectively in the backend `.env` file.
+
+### Stripe
+
+1. **Sign Up/Login to Stripe**: If you don't have an account, sign up for Stripe at [Stripe](https://stripe.com/).
+2. **Get Secret Key and Webhook Secret**: After logging in, navigate to the Developers > API keys section in the dashboard. Here, you'll find your secret key (`STRIPE_API_KEY`) and webhook secret (`STRIPE_WEBHOOK_SECRET`). Create a new webhook endpoint if needed and get the webhook secret.
+
+Follow these steps to obtain the necessary API keys and secrets for the services used in the `.env` files. Make sure to keep these keys secure and never expose them publicly.
